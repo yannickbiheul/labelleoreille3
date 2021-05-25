@@ -1,6 +1,6 @@
 #footer {
     border-top: 1px solid #ccc;
-    
+
     .footer1 {
         a {
             text-decoration: none;
@@ -10,5 +10,15 @@
     }
     .footer2 {
         padding: 10px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .footer1 {
+            display: none !important;
+        }
+
+        .footer3 {
+            display: none !important;
+        }
     }
 }
