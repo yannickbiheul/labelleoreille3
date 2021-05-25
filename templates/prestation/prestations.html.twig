@@ -1,0 +1,32 @@
+<div class="container" id="prestations">
+	<div class="row">
+    {% for prestation in prestations %}
+		<div class="col-lg-4">
+			<div class="card" data-aos="flip-left" data-aos-duration="2000" data-aos-delay="1000">
+				<div class="card-body">
+
+                    {# TITRE #}
+					<h5 class="card-title">{{ prestation.titre }}</h5>
+
+                    {# CATEGORIE #}
+                    {% for categorie in prestation.categorie %}
+					<h6 class="card-subtitle mb-2 text-muted"> | {{ categorie.nom }}</h6>
+                    {% endfor %}
+
+                    {# CONTENU #}
+					<p class="card-text">{{ prestation.contenu1 }}</p>
+                    <p class="card-text">{{ prestation.contenu2 }}</p>
+                    <p class="card-text">{{ prestation.contenu3 }}</p>
+                    <p class="card-text">{{ prestation.contenu4 }}</p>
+
+                    {# AUDIO #}
+					<figcaption>Extrait d'une crémaillère</figcaption>
+					<audio controls></audio>
+					<figcaption>Extrait d'une noce de coton</figcaption>
+					<audio controls></audio>
+				</div>
+			</div>
+		</div>
+    {% endfor %}
+	</div>
+</div>
