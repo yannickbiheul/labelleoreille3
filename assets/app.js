@@ -11,6 +11,7 @@ import './styles/nav.scss';
 import './styles/banniere.scss';
 import './styles/presentation.scss';
 import './styles/footer.scss';
+import './styles/prestations.scss';
 
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
