@@ -10,9 +10,15 @@ import './styles/app.scss';
 import './styles/nav.scss';
 import './styles/banniere.scss';
 import './styles/presentation.scss';
+import './styles/footer.scss';
 
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
 
 // start the Stimulus application
 import './bootstrap';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
