@@ -10,9 +10,12 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script src="https://kit.fontawesome.com/29ef46100e.js" crossorigin="anonymous"></script>
         {% endblock %}
     </head>
     <body>
+        {% include 'base/nav.html.twig' %}
+        {% include 'base/banniere.html.twig' %}
         {% block body %}{% endblock %}
     </body>
 </html>

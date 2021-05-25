@@ -30,7 +30,8 @@ class AppFixtures extends Fixture
             ->setDescription('Réalisation de reportage audio pour les particuliers et les professionnels')
             ->setLienFacebook('https://www.facebook.com/La-Belle-Oreille-101656721318094/?modal=admin_todo_tour')
             ->setLienInstagram('https://www.instagram.com/foureljeanne/')
-            ->setProprietaire('Jeanne Fourel');
+            ->setProprietaire('Jeanne Fourel')
+            ->setPhoto('jeanne_fourel.jpg');
 
         $manager->persist($general);
 

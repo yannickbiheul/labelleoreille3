@@ -1,0 +1,29 @@
+#banniere {
+    position: relative;
+    height: 400px;
+    padding-top: 80px;
+    background-image: radial-gradient(circle at center center, rgb(71, 71, 71),rgb(8, 8, 8));
+
+    .logoText {
+        border-radius: 50%;
+        width: 300px;
+        margin-top: 80px;
+    }
+
+    .phraseTitre {
+        color: #fff;
+    }
+
+    .logo {
+        position: absolute;
+        bottom: -60px;
+    }
+
+    .page {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: #fff;
+    }
+
+}
