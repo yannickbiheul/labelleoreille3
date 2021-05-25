@@ -1,15 +1,15 @@
 <div class="container d-flex justify-content-center align-items-center" id="presentation">
 	<div class="row">
-		<div class="col-lg-6 d-flex justify-content-end">
-            <img class="photoProfil" src="/photos/{{ general.photo }}" alt="photo">
-        </div>
-        <div class="col-lg-6 d-flex justify-content-start">
-            <div class="containerPresentation d-flex flex-column justify-content-center align-items-center">
-                <em>{{ general.citation }}</em>
-                <em>{{ general.proprietaire }}</em>
-                <hr>
-                <h3>{{ general.description }}</h3>
-            </div>
-        </div>
+		<div class="col-lg-6 d-flex justify-content-center" data-aos="zoom-in" data-aos-duration="2000">
+			<img class="photoProfil" src="/photos/{{ general.photo }}" alt="photo">
+		</div>
+		<div class="col-lg-6 d-flex justify-content-start" data-aos="zoom-in" data-aos-duration="2000">
+			<div class="containerPresentation d-flex flex-column justify-content-center align-items-center">
+				<em>{{ general.citation }}</em>
+				<em>{{ general.proprietaire }}</em>
+				<hr>
+				<h3>{{ general.description }}</h3>
+			</div>
+		</div>
 	</div>
 </div>
