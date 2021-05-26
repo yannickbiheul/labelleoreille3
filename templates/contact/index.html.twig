@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Belle Oreille | Contact
+{% endblock %}
+
+{% block body %}
+	<div class="container" id="contact">
+		<div class="row d-flex justify-content-center">
+			{% include 'contact/coordonnees.html.twig' %}
+			{% include 'contact/formulaire.html.twig' %}
+		</div>
+	</div>
+{% endblock %}

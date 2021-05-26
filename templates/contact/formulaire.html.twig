@@ -1,0 +1,42 @@
+<div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
+
+	{{ form_start(formulaire) }}
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+    <div class="errors">
+        {{ form_errors(formulaire) }}
+    </div>
+
+    <div class="form-group mb-4">
+        <label class="form-label" for="contactName">
+            {{ form_label(formulaire.nom) }}
+        </label>
+        {{ form_widget(formulaire.nom) }}
+    </div>
+
+    <div class="form-group mb-4">
+        <label class="form-label" for="contactEmail">
+            {{ form_label(formulaire.email) }}
+        </label>
+        {{ form_widget(formulaire.email) }}
+    </div>
+
+    <div class="form-group mb-4">
+        <label class="form-label" for="contactMessage">
+            {{ form_label(formulaire.message) }}
+        </label>
+        {{ form_widget(formulaire.message) }}
+    </div>
+
+    <div class="form-group mb-0">
+        {{ form_widget(formulaire.envoyer) }}
+    </div>
+
+    {{ form_end(formulaire) }}
+
+</div>

@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Categorie;
 use App\Entity\General;
 use App\Entity\Prestation;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -70,6 +71,21 @@ class AppFixtures extends Fixture
             ->addCategorie($categorie1);
         
         $manager->persist($prestation2);
+
+        // ADMIN
+        $admin = new User;
+
+        $admin->setEmail('labelleoreille29@gmail.com')
+            ->setNom('Fourel')
+            ->setPrenom('Jeanne')
+            ->setRoles(['ROLE_ADMIN'])
+            ->setTelephone('06 81 55 87 76')
+            ->setVille('Quimper');
+
+        $password = $this->encoder->encodePassword($admin, 'password');
+        $admin->setPassword($password);
+
+        $manager->persist($admin);
 
         $manager->flush();
     }
