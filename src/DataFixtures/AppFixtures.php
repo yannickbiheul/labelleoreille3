@@ -6,6 +6,7 @@ use App\Entity\Actu;
 use App\Entity\Categorie;
 use App\Entity\General;
 use App\Entity\Image;
+use App\Entity\Photo;
 use App\Entity\Prestation;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -103,6 +104,39 @@ class AppFixtures extends Fixture
             ->setImage($image1);
 
         $manager->persist($actu1);
+
+        // PHOTOS
+        $photo2 = new Photo;
+        $photo2->setNom('coat_ty_dreux.jpg');
+        $manager->persist($photo2);
+
+        $photo3 = new Photo;
+        $photo3->setNom('fougeres1.jpg');
+        $manager->persist($photo3);
+
+        $photo4 = new Photo;
+        $photo4->setNom('fougeres2.jpg');
+        $manager->persist($photo4);
+
+        $photo5 = new Photo;
+        $photo5->setNom('fougeres3.jpg');
+        $manager->persist($photo5);
+
+        $photo6 = new Photo;
+        $photo6->setNom('fougeres4.jpg');
+        $manager->persist($photo6);
+
+        $photo7 = new Photo;
+        $photo7->setNom('fougeres5.jpg');
+        $manager->persist($photo7);
+
+        $photo8 = new Photo;
+        $photo8->setNom('nevez1.jpg');
+        $manager->persist($photo8);
+
+        $photo9 = new Photo;
+        $photo9->setNom('nevez2.jpg');
+        $manager->persist($photo9);
 
         $manager->flush();
     }

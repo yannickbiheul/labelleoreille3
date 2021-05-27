@@ -1,7 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La Belle Oreille | Galerie Photos{% endblock %}
+{% block title %}La Belle Oreille | Galerie Photos
+{% endblock %}
 
 {% block body %}
-
+	<div class="container" id="galerie">
+		{# <div class="row d-flex justify-content-center align-items-center">
+			<div class="col-lg-6 d-flex justify-content-center align-items-center">
+				<h2>Galerie Photos</h2>
+			</div>
+		</div> #}
+		<div class="row d-flex flex-wrap justify-content-center align-items-center">
+			{% for photo in photos %}
+				<div class="col-lg-3 d-flex justify-content-center align-items-center">
+					<a href="/photos/{{ photo.nom }}">
+						<img src="/photos/{{ photo.nom }}" class="img-thumbnail photo" alt="Photo">
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
