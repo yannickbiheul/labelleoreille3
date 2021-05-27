@@ -33,13 +33,14 @@ jobs:
       - name: Validation composer.json et composer.lock
         run: composer validate
 
-      # Check Symfony requirements
-      - name: Check Symfony requirements
-        run: vendor/bin/requirements-checker
-
       # Tests Unitaires
       - name: Tests Unitaires
         run: php bin/phpunit --testdox
+
+      # Coding Standards
+      - name: Coding standards checks (php_codesniffer + php-cs-fixer)
+        run: make cs
+        if: matrix.php-versions == '7.4'
 
       # Runs a set of commands using the runners shell
       # - name: Tests Unitaires
