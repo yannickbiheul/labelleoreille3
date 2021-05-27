@@ -29,6 +29,10 @@ jobs:
       - name: Installation Composer
         run: composer install
 
+      # Validation composer.json et composer.lock
+      - name: Validation composer.json et composer.lock
+        run: composer validate
+
       # Tests Unitaires
       - name: Tests Unitaires
         run: php bin/phpunit --testdox
