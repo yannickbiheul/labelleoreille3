@@ -2,8 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Actu;
 use App\Entity\Categorie;
 use App\Entity\General;
+use App\Entity\Image;
 use App\Entity\Prestation;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -88,7 +90,19 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
 
         // IMAGES
-        
+        $image1 = new Image;
+
+        $image1->setNom('telegramme_20_10_2020.jpeg');
+
+        $manager->persist($image1);
+
+        // ACTUS
+        $actu1 = new Actu;
+
+        $actu1->setTitre('Article Télegramme du 20 octobre 2020')
+            ->setImage($image1);
+
+        $manager->persist($actu1);
 
         $manager->flush();
     }
