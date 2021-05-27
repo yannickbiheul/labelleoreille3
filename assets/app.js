@@ -13,6 +13,7 @@ import './styles/presentation.scss';
 import './styles/footer.scss';
 import './styles/prestations.scss';
 import './styles/contact.scss';
+import './styles/actus.scss';
 
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
