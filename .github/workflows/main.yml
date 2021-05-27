@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Unit_Tests
+name: Tests
 
 # Controls when the action will run. 
 on:
@@ -30,7 +30,7 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Tests Unitaires
         run: |
-          composer install
+          php bin/phpunit
           php bin/phpunit --testdox
