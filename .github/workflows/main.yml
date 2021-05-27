@@ -33,4 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           composer install
-          php bin/phpunit --test-dox
+          php bin/phpunit --testdox
