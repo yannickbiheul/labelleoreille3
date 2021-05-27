@@ -33,6 +33,10 @@ jobs:
       - name: Validation composer.json et composer.lock
         run: composer validate
 
+      # Check Symfony requirements
+      - name: Check Symfony requirements
+        run: vendor/bin/requirements-checker
+
       # Tests Unitaires
       - name: Tests Unitaires
         run: php bin/phpunit --testdox
