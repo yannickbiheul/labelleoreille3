@@ -2,15 +2,16 @@
 
 namespace App\DataFixtures;
 
+use Faker\Factory;
 use App\Entity\Actu;
-use App\Entity\Categorie;
-use App\Entity\General;
+use App\Entity\User;
 use App\Entity\Image;
 use App\Entity\Photo;
+use App\Entity\General;
+use App\Entity\Categorie;
 use App\Entity\Prestation;
-use App\Entity\User;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -43,15 +44,11 @@ class AppFixtures extends Fixture
 
         // CATEGORIES
         $categorie1 = new Categorie;
-
         $categorie1->setNom('Particuliers');
-
         $manager->persist($categorie1);
 
         $categorie2 = new Categorie;
-
         $categorie2->setNom('Entreprises');
-
         $manager->persist($categorie2);
 
         // PRESTATIONS
@@ -83,12 +80,29 @@ class AppFixtures extends Fixture
             ->setPrenom('Jeanne')
             ->setRoles(['ROLE_ADMIN'])
             ->setTelephone('06 81 55 87 76')
-            ->setVille('Quimper');
+            ->setVille('Quimper')
+            ->setCreatedAt(new \DateTime());
 
         $password = $this->encoder->encodePassword($admin, 'password');
         $admin->setPassword($password);
 
         $manager->persist($admin);
+
+        // USERS
+        $faker = Factory::create('fr_FR');
+        $users = [];
+
+        for ($i = 0; $i < 50; $i++) {
+            $user = new User();
+            $user->setEmail($faker->email)
+                ->setNom($faker->lastName())
+                ->setPrenom($faker->firstName())
+                ->setRoles(['ROLE_USER'])
+                ->setPassword($faker->password())
+                ->setCreatedAt(new \DateTime());
+            $manager->persist($user);
+            $users[] = $user;
+        }
 
         // IMAGES
         $image1 = new Image;
