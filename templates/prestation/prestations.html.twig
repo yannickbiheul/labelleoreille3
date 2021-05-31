@@ -1,7 +1,7 @@
-<div class="container" id="prestations">
+<div class="container-fluid" id="prestations">
 	<div class="row">
     {% for prestation in prestations %}
-		<div class="col-lg-4">
+		<div class="col-xl-3 col-lg-4">
 			<div class="card" data-aos="flip-left" data-aos-duration="2000">
 				<div class="card-body">
 
@@ -14,16 +14,13 @@
                     {% endfor %}
 
                     {# CONTENU #}
-					<p class="card-text">{{ prestation.contenu1 }}</p>
-                    <p class="card-text">{{ prestation.contenu2 }}</p>
-                    <p class="card-text">{{ prestation.contenu3 }}</p>
-                    <p class="card-text">{{ prestation.contenu4 }}</p>
+					<p class="card-text">{{ prestation.contenu | raw }}</p>
 
                     {# AUDIO #}
-					<figcaption>Extrait d'une crémaillère</figcaption>
-					<audio controls></audio>
-					<figcaption>Extrait d'une noce de coton</figcaption>
-					<audio controls></audio>
+					{% for audio in prestation.audio %}
+						<figcaption>{{ audio.nom }}</figcaption>
+						<audio src="/audios/{{ audio.lien }}" controls></audio>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

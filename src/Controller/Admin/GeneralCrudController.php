@@ -2,26 +2,27 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\User;
+use App\Entity\General;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class UserCrudController extends AbstractCrudController
+class GeneralCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return User::class;
+        return General::class;
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('prenom'),
-            TextField::new('nom'),
-            TextField::new('email'),
-            TextField::new('password')->hideOnIndex(),
+            TextEditorField::new('phraseTitre'),
+            TextEditorField::new('citation'),
+            TextEditorField::new('description'),
+            TextField::new('proprietaire'),
         ];
     }
     

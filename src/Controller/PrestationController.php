@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AudioRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\GeneralRepository;
 use App\Repository\PrestationRepository;
@@ -11,17 +12,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PrestationController extends AbstractController
 {
+    private $generalRepository;
+    private $prestationRepository;
+    private $categorieRepository;
+    private $audioRepository;
+
+    public function __construct(GeneralRepository $generalRepository, PrestationRepository $prestationRepository, 
+    CategorieRepository $categorieRepository, AudioRepository $audioRepository)
+    {
+        $this->generalRepository = $generalRepository;
+        $this->prestationRepository = $prestationRepository;
+        $this->categorieRepository = $categorieRepository;
+        $this->audioRepository = $audioRepository;
+    }
+
     /**
      * @Route("/prestation", name="prestation")
      */
-    public function index(GeneralRepository $generalRepository, 
-    PrestationRepository $prestationRepository, 
-    CategorieRepository $categorieRepository): Response
+    public function index(): Response
     {
-        $general = $generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
         $page = "Prestations";
-        $prestations = $prestationRepository->findAll();
-        $categories = $categorieRepository->findAll();
-        return $this->render('prestation/index.html.twig', compact('general', 'page', 'prestations', 'categories'));
+        $prestations = $this->prestationRepository->findAll();
+        $categories = $this->categorieRepository->findAll();
+        $audios = $this->audioRepository->findAll();
+
+        return $this->render('prestation/index.html.twig', compact('general', 'page', 'prestations', 'categories', 'audios'));
     }
 }
