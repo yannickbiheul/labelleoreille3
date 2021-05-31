@@ -12,19 +12,19 @@
 				<h1>{{ actu.titre }}</h1>
 			</div>
             <div class="col-lg-12 d-flex justify-content-center">
-                <em class="date">Le {{ actu.createdAt | date("d/m/Y") }} à {{ actu.createdAt | date("H:i") }}</em>
+                <small class="date">Le {{ actu.createdAt | date("d/m/Y") }} à {{ actu.createdAt | date("H:i") }}</small>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 d-flex justify-content-center">
-				<a href="/images/{{ actu.image.nom }}">
-					<img src="/images/{{ actu.image.nom }}" class="img-fluid">
+				<a href="/images/{{ actu.image }}">
+					<img src="/images/{{ actu.image }}" class="img-fluid">
 				</a>
 			</div>
 		</div>
         <div class="row">
-			<div class="col-lg-12 d-flex justify-content-center">
-				<p>{{ actu.contenu }}</p>
+			<div class="col-lg-12 d-flex flex-column justify-content-center align-items-center">
+				{{ actu.contenu | raw }}
 			</div>
 		</div>
 	</div>
