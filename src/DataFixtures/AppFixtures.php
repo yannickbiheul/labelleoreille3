@@ -104,18 +104,11 @@ class AppFixtures extends Fixture
             $users[] = $user;
         }
 
-        // IMAGES
-        $image1 = new Image;
-
-        $image1->setNom('telegramme_20_10_2020.jpeg');
-
-        $manager->persist($image1);
-
         // ACTUS
         $actu1 = new Actu;
 
         $actu1->setTitre('Article Télegramme du 20 octobre 2020')
-            ->setImage($image1)
+            ->setImage('telegramme_20_10_2020.jpeg')
             ->setCreatedAt(new \DateTime());
 
         $manager->persist($actu1);

@@ -7,11 +7,12 @@
 <div class="container">
 	<div class="row d-flex justify-content-center align-items-center">
 		{% for actu in actus %}
-			<div class="card" style="width: 18rem;">
-				<em class="date">Le {{ actu.createdAt | date("d/m/Y") }} à {{ actu.createdAt | date("H:i") }}</em>
-				<a class="lienImage" href="/images/{{ actu.image.nom }}"><img src="/images/{{ actu.image.nom }}" class="card-img-top" alt="{{ actu.titre }}"></a>
+			<div class="card" style="width: 18rem;margin: 10px;">
+				<a class="lienImage" href="{{ path('show', {'id':actu.id}) }}"><img src="/images/{{ actu.image }}" class="card-img-top" alt="{{ actu.titre }}"></a>
 				<div class="card-body">
 					<h5 class="card-title">{{ actu.titre }}</h5>
+					<small class="date">Le {{ actu.createdAt | date("d/m/Y") }} à {{ actu.createdAt | date("H:i") }}</small>
+					<br>
 					<a href="{{ path('show', {'id':actu.id}) }}" class="btn btn-primary">Voir</a>
 				</div>
 			</div>
