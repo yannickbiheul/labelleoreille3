@@ -38,8 +38,8 @@ jobs:
             ${{ runner.os }}-composer-
 
       # Installation modules
-      - name: Installation modules
-        run: composer install
+      # - name: Installation modules
+      #   run: composer install
 
       # Validation composer.json et composer.lock
       - name: Validation composer.json et composer.lock
