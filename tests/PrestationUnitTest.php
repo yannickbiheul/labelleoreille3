@@ -11,16 +11,10 @@ class PrestationUnitTest extends TestCase
     {
         $prestation = new Prestation;
 
-        $prestation->setContenu1('contenu1')
-            ->setContenu2('contenu2')
-            ->setContenu3('contenu3')
-            ->setContenu4('contenu4')
+        $prestation->setContenu('contenu')
             ->setTitre('titre');
 
-        $this->assertTrue($prestation->getContenu1() === 'contenu1');
-        $this->assertTrue($prestation->getContenu2() === 'contenu2');
-        $this->assertTrue($prestation->getContenu3() === 'contenu3');
-        $this->assertTrue($prestation->getContenu4() === 'contenu4');
+        $this->assertTrue($prestation->getContenu() === 'contenu');
         $this->assertTrue($prestation->getTitre() === 'titre');
     }
 
@@ -28,16 +22,10 @@ class PrestationUnitTest extends TestCase
     {
         $prestation = new Prestation;
 
-        $prestation->setContenu1('contenu1')
-            ->setContenu2('contenu2')
-            ->setContenu3('contenu3')
-            ->setContenu4('contenu4')
+        $prestation->setContenu('contenu')
             ->setTitre('titre');
 
-        $this->assertFalse($prestation->getContenu1() === 'false');
-        $this->assertFalse($prestation->getContenu2() === 'false');
-        $this->assertFalse($prestation->getContenu3() === 'false');
-        $this->assertFalse($prestation->getContenu4() === 'false');
+        $this->assertFalse($prestation->getContenu() === 'false');
         $this->assertFalse($prestation->getTitre() === 'false');
     }
 
@@ -45,10 +33,7 @@ class PrestationUnitTest extends TestCase
     {
         $prestation = new Prestation;
 
-        $this->assertEmpty($prestation->getContenu1());
-        $this->assertEmpty($prestation->getContenu2());
-        $this->assertEmpty($prestation->getContenu3());
-        $this->assertEmpty($prestation->getContenu4());
+        $this->assertEmpty($prestation->getContenu());
         $this->assertEmpty($prestation->getTitre());
     }
 }
