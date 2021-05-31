@@ -17,15 +17,24 @@ use Symfony\Component\Mime\Email;
 
 class ContactController extends AbstractController
 {
+    private $generalRepository;
+    private $userRepository;
+
+    public function __construct(GeneralRepository $generalRepository, 
+    UserRepository $userRepository)
+    {
+        $this->generalRepository = $generalRepository;
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(GeneralRepository $generalRepository, 
-    UserRepository $userRepository, Request $request, MailerInterface $mailer, 
+    public function index(Request $request, MailerInterface $mailer, 
     FlashBagInterface $flash): Response
     {
-        $general = $generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
-        $admin = $userRepository->findOneBy(['nom' => 'Fourel']);
+        $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $admin = $this->userRepository->findOneBy(['nom' => 'Fourel']);
         $page = "Contact";
 
         $contact = new Contact();

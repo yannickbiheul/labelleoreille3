@@ -10,13 +10,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    private $generalRepository;
+
+    public function __construct(GeneralRepository $generalRepository)
+    {
+        $this->generalRepository = $generalRepository;
+    }
+
     /**
      * @Route("/", name="home")
      */
-    public function index(GeneralRepository $generalRepository): Response
+    public function index(): Response
     {
-        $general = $generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
         $page = "Accueil";
+        
         return $this->render('home/index.html.twig', compact('general', 'page'));
     }
 }

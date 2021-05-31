@@ -27,31 +27,22 @@ class Prestation
     /**
      * @ORM\Column(type="text")
      */
-    private $contenu1;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $contenu2;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $contenu3;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $contenu4;
+    private $contenu;
 
     /**
      * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="prestations")
      */
     private $categorie;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Audio::class, inversedBy="prestations")
+     */
+    private $audio;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
+        $this->audio = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -71,50 +62,14 @@ class Prestation
         return $this;
     }
 
-    public function getContenu1(): ?string
+    public function getContenu(): ?string
     {
-        return $this->contenu1;
+        return $this->contenu;
     }
 
-    public function setContenu1(string $contenu1): self
+    public function setContenu(string $contenu): self
     {
-        $this->contenu1 = $contenu1;
-
-        return $this;
-    }
-
-    public function getContenu2(): ?string
-    {
-        return $this->contenu2;
-    }
-
-    public function setContenu2(?string $contenu2): self
-    {
-        $this->contenu2 = $contenu2;
-
-        return $this;
-    }
-
-    public function getContenu3(): ?string
-    {
-        return $this->contenu3;
-    }
-
-    public function setContenu3(?string $contenu3): self
-    {
-        $this->contenu3 = $contenu3;
-
-        return $this;
-    }
-
-    public function getContenu4(): ?string
-    {
-        return $this->contenu4;
-    }
-
-    public function setContenu4(?string $contenu4): self
-    {
-        $this->contenu4 = $contenu4;
+        $this->contenu = $contenu;
 
         return $this;
     }
@@ -139,6 +94,30 @@ class Prestation
     public function removeCategorie(Categorie $categorie): self
     {
         $this->categorie->removeElement($categorie);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Audio[]
+     */
+    public function getAudio(): Collection
+    {
+        return $this->audio;
+    }
+
+    public function addAudio(Audio $audio): self
+    {
+        if (!$this->audio->contains($audio)) {
+            $this->audio[] = $audio;
+        }
+
+        return $this;
+    }
+
+    public function removeAudio(Audio $audio): self
+    {
+        $this->audio->removeElement($audio);
 
         return $this;
     }
