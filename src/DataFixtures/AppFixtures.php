@@ -115,7 +115,8 @@ class AppFixtures extends Fixture
         $actu1 = new Actu;
 
         $actu1->setTitre('Article Télegramme du 20 octobre 2020')
-            ->setImage($image1);
+            ->setImage($image1)
+            ->setCreatedAt(new \DateTime());
 
         $manager->persist($actu1);
 

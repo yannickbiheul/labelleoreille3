@@ -8,10 +8,11 @@
 	<div class="row d-flex justify-content-center align-items-center">
 		{% for actu in actus %}
 			<div class="card" style="width: 18rem;">
-				<a href="/images/{{ actu.image.nom }}" style="height: 200px; overflow: hidden;"><img src="/images/{{ actu.image.nom }}" class="card-img-top" alt="{{ actu.titre }}"></a>
+				<em class="date">Le {{ actu.createdAt | date("d/m/Y") }} à {{ actu.createdAt | date("H:i") }}</em>
+				<a class="lienImage" href="/images/{{ actu.image.nom }}"><img src="/images/{{ actu.image.nom }}" class="card-img-top" alt="{{ actu.titre }}"></a>
 				<div class="card-body">
 					<h5 class="card-title">{{ actu.titre }}</h5>
-					<a href="/images/{{ actu.image.nom }}" class="btn btn-primary">Voir</a>
+					<a href="{{ path('show', {'id':actu.id}) }}" class="btn btn-primary">Voir</a>
 				</div>
 			</div>
 		{% endfor %}
