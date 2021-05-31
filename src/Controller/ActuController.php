@@ -24,4 +24,23 @@ class ActuController extends AbstractController
 
         return $this->render('actu/index.html.twig', compact('general', 'page', 'actus', 'images'));
     }
+
+    /**
+     * @Route("/show/{id}", name="show")
+     */
+    public function show(GeneralRepository $generalRepository, 
+    ImageRepository $imageRepository, ActuRepository $actuRepository, $id): Response
+    {
+        $general = $generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $page = "Actualités";
+        $actu = $actuRepository->find($id);
+        $images = $imageRepository->findAll();
+
+        if (!$actu) {
+            return $this->redirectToRoute('actu');
+        }
+
+        return $this->render('actu/show.html.twig', compact('general', 'page', 'actu', 'images'));
+    }
+
 }
