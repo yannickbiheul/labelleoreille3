@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Belle Oreille | {{ page }}
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="text-center">{{ page }}</h2>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4">
+            <form action="" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label">Votre email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="_username">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Votre mot de passe</label>
+            <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" name="_password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock body %}
