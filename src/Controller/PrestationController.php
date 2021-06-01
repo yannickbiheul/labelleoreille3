@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Repository\AudioRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\GeneralRepository;
@@ -38,5 +39,24 @@ class PrestationController extends AbstractController
         $audios = $this->audioRepository->findAll();
 
         return $this->render('prestation/index.html.twig', compact('general', 'page', 'prestations', 'categories', 'audios'));
+    }
+
+    /**
+     * @Route("/showPrestations/{id}", name="show_prestations")
+     */
+    public function showPrestations(?Categorie $categorie): Response
+    {
+        $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $page = "Prestations";
+        $categories = $this->categorieRepository->findAll();
+        $audios = $this->audioRepository->findAll();
+
+        if ($categorie) {
+            $prestations = $categorie->getPrestations()->getValues();
+        } else {
+            return $this->redirectToRoute('prestation');
+        }
+
+        return $this->render("prestation/showPrestations.html.twig", compact('general', 'page', 'prestations', 'categories', 'audios'));
     }
 }
