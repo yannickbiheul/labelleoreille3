@@ -57,6 +57,6 @@ class PrestationController extends AbstractController
             return $this->redirectToRoute('prestation');
         }
 
-        return $this->render("prestation/showPrestations.html.twig", compact('general', 'page', 'prestations', 'categories', 'audios'));
+        return $this->render("prestation/index.html.twig", compact('general', 'page', 'prestations', 'categories', 'audios'));
     }
 }
