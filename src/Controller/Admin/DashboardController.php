@@ -11,6 +11,7 @@ use App\Controller\Admin\ActuCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\GeneralCrudController;
 use App\Entity\General;
+use App\Entity\Photo;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -44,6 +45,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Audios', 'fas fa-music', Audio::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Actu::class);
+        yield MenuItem::linkToCrud('Photos', 'fas fa-camera-retro', Photo::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
     }
 }
