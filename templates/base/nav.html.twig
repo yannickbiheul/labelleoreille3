@@ -24,9 +24,11 @@
                 <li class="nav-item">
 					<a class="nav-link" href="#">Vos fichiers</a>
 				</li>
+				{% if is_granted("ROLE_ADMIN") %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('admin') }}" target="_blank">Admin</a>
 				</li>
+				{% endif %}
 			</ul>
 
 			{% if app.user %}
