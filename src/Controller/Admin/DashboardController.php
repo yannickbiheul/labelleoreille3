@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\GeneralCrudController;
 use App\Entity\General;
 use App\Entity\Photo;
+use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -26,9 +27,10 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         // redirect to some CRUD controller
-        $routeBuilder = $this->get(AdminUrlGenerator::class);
+        // $routeBuilder = $this->get(AdminUrlGenerator::class);
 
-        return $this->redirect($routeBuilder->setController(GeneralCrudController::class)->generateUrl());
+        // return $this->redirect($routeBuilder->setController(GeneralCrudController::class)->generateUrl());
+        return $this->render('admin/dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -39,8 +41,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        // yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Général', 'fas fa-home', General::class);
+        yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
+        yield MenuItem::linkToCrud('Général', 'fas fa-list', General::class);
         yield MenuItem::linkToCrud('Prestations', 'fas fa-newspaper', Prestation::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Audios', 'fas fa-music', Audio::class);
