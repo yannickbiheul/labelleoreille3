@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
             ->setLienFacebook('https://www.facebook.com/La-Belle-Oreille-101656721318094/?modal=admin_todo_tour')
             ->setLienInstagram('https://www.instagram.com/foureljeanne/')
             ->setProprietaire('Jeanne Fourel')
-            ->setPhoto('jeanne_fourel.jpg');
+            ->setPhoto('essai_presentation.png');
 
         $manager->persist($general);
 
@@ -62,26 +62,25 @@ class AppFixtures extends Fixture
             ->setVille('Quimper')
             ->setCreatedAt(new \DateTime());
 
-        $password = $this->encoder->encodePassword($admin, 'password');
+        $password = $this->encoder->encodePassword($admin, '123456');
         $admin->setPassword($password);
 
         $manager->persist($admin);
 
-        // USERS
-        $faker = Factory::create('fr_FR');
-        $users = [];
+        $admin2 = new User;
 
-        for ($i = 0; $i < 50; $i++) {
-            $user = new User();
-            $user->setEmail($faker->email)
-                ->setNom($faker->lastName())
-                ->setPrenom($faker->firstName())
-                ->setRoles(['ROLE_USER'])
-                ->setPassword($faker->password())
-                ->setCreatedAt(new \DateTime());
-            $manager->persist($user);
-            $users[] = $user;
-        }
+        $admin2->setEmail('yannickbiheul@outlook.fr')
+            ->setNom('Biheul')
+            ->setPrenom('Yannick')
+            ->setRoles(['ROLE_ADMIN'])
+            ->setTelephone('06 23 55 68 64')
+            ->setVille('Quimper')
+            ->setCreatedAt(new \DateTime());
+
+        $password = $this->encoder->encodePassword($admin2, '123456');
+        $admin2->setPassword($password);
+
+        $manager->persist($admin2);
 
         // ACTUS
         $actu1 = new Actu;
