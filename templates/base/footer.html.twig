@@ -1,6 +1,7 @@
 <div class="container-fluid" id="footer">
-	<div class="row">
-		<div class="footer1 col-lg-4 d-flex flex-wrap justify-content-center align-items-center">
+	<div class="row d-flex justify-content-center align-items-end">
+		<div class="footer1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+            <h3>Menu</h3>
             <a href="{{ path('home') }}">Accueil</a>
             <a href="{{ path('prestation') }}">Prestations</a>
             <a href="{{ path('contact') }}">Contact</a>
@@ -9,10 +10,18 @@
             <a href="/">Vos fichiers</a>
             <a href="/">Inscription / Connexion</a>
         </div>
-        <div class="footer2 col-lg-4 d-flex justify-content-center align-items-center">
+        <div class="footer2 col-lg-4 d-flex flex-column justify-content-end align-items-center">
             <p>©2021 | La Belle Oreille</p>
         </div>
-        <div class="footer3 col-lg-4 d-flex justify-content-end align-items-center">
+        <div class="footer3 col-lg-4 d-flex flex-column justify-content-end align-items-center">
+            <h3>Contact</h3>
+            {% if admin %}
+                <p>{{ admin.prenom }} {{ admin.nom }}</p>
+                <p>{{ admin.telephone }}</p>
+                <p>{{ admin.email }}</p>
+                <p>{{ admin.ville }}</p>
+            {% endif %}
+            <p></p>
             <div class="reseaux d-flex justify-content-center">
 				<a href="{{ general.lienFacebook }}" target="_blank">
 					<i class="fab fa-facebook-f"></i>
