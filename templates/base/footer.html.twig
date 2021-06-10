@@ -15,12 +15,10 @@
         </div>
         <div class="footer3 col-lg-4 d-flex flex-column justify-content-end align-items-center">
             <h3>Contact</h3>
-            {% if admin %}
-                <p>{{ admin.prenom }} {{ admin.nom }}</p>
-                <p>{{ admin.telephone }}</p>
-                <p>{{ admin.email }}</p>
-                <p>{{ admin.ville }}</p>
-            {% endif %}
+            <p class="text-center">{{ general.proprietaire }}</p>
+            <p class="text-center">{{ general.telephone }}</p>
+            <p class="text-center">{{ general.email }}</p>
+            <p class="text-center">{{ general.ville }}</p>
             <p></p>
             <div class="reseaux d-flex justify-content-center">
 				<a href="{{ general.lienFacebook }}" target="_blank">
