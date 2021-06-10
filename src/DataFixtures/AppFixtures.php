@@ -31,6 +31,7 @@ class AppFixtures extends Fixture
         $general->setLogo('logo.png')
             ->setLogo2('logo2.png')
             ->setLogo3('logo3.png')
+            ->setImageBanniere('micro3.jpg')
             ->setPhraseTitre('Des voix en mémoire')
             ->setCitation('Quoi de plus riche et émouvant que d’entendre
             et de conserver la voix de ceux que l’on aime')
@@ -38,6 +39,9 @@ class AppFixtures extends Fixture
             ->setLienFacebook('https://www.facebook.com/La-Belle-Oreille-101656721318094/?modal=admin_todo_tour')
             ->setLienInstagram('https://www.instagram.com/foureljeanne/')
             ->setProprietaire('Jeanne Fourel')
+            ->setTelephone('06 81 55 87 76')
+            ->setEmail('labelleoreille29@gmail.com')
+            ->setVille('Quimper')
             ->setPhoto('essai_presentation.png');
 
         $manager->persist($general);

@@ -24,6 +24,12 @@ class GeneralCrudController extends AbstractCrudController
             TextEditorField::new('citation'),
             TextEditorField::new('description'),
             TextField::new('proprietaire'),
+            TextField::new('telephone'),
+            TextField::new('email'),
+            TextField::new('ville'),
+            ImageField::new('imageBanniere')->setUploadDir("public/backgrounds")
+                                    ->setBasePath("/backgrounds")
+                                    ->setRequired(false),
             ImageField::new('photo')->setUploadDir("public/backgrounds")
                                     ->setBasePath("/backgrounds")
                                     ->setRequired(false),
