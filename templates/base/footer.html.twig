@@ -1,33 +1,41 @@
 <div class="container-fluid" id="footer">
-	<div class="row d-flex justify-content-center align-items-end">
-		<div class="footer1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-            <h3>Menu</h3>
-            <a href="{{ path('home') }}">Accueil</a>
-            <a href="{{ path('prestation') }}">Prestations</a>
-            <a href="{{ path('contact') }}">Contact</a>
-            <a href="{{ path('actu') }}">Actualités</a>
-            <a href="{{ path('galerie') }}">Galerie Photos</a>
-            <a href="/">Vos fichiers</a>
-            <a href="/">Inscription / Connexion</a>
+        <div class="row d-flex justify-content-center">
+            <div class="footer1 col-md-4 d-flex flex-column justify-content-center align-items-center">
+                <h4>Menu</h4>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('prestation') }}">Prestations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('actu') }}">Actualités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('galerie') }}">Galerie photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vos fichiers</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2 col-md-4 d-flex flex-column justify-content-end align-items-center">
+                ©2021 | La Belle Oreille
+            </div>
+            <div class="footer3 col-md-4 d-flex flex-column justify-content-center align-items-center">
+                <h4>Contact</h4>
+                <h5>{{ general.proprietaire }}</h5>
+                <p>{{ general.telephone }}</p>
+                <p>{{ general.email }}</p>
+                <p>{{ general.ville }}</p>
+                <div class="reseaux">
+                    <a href="{{ general.lienFacebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ general.lienInstagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="footer2 col-lg-4 d-flex flex-column justify-content-end align-items-center">
-            <p>©2021 | La Belle Oreille</p>
-        </div>
-        <div class="footer3 col-lg-4 d-flex flex-column justify-content-end align-items-center">
-            <h3>Contact</h3>
-            <p class="text-center">{{ general.proprietaire }}</p>
-            <p class="text-center">{{ general.telephone }}</p>
-            <p class="text-center">{{ general.email }}</p>
-            <p class="text-center">{{ general.ville }}</p>
-            <p></p>
-            <div class="reseaux d-flex justify-content-center">
-				<a href="{{ general.lienFacebook }}" target="_blank">
-					<i class="fab fa-facebook-f"></i>
-				</a>
-				<a href="{{ general.lienInstagram }}" target="_blank">
-					<i class="fab fa-instagram"></i>
-				</a>
-			</div>
-        </div>
-	</div>
-</div>
+    </div>

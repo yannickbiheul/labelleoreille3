@@ -7,13 +7,13 @@
 
     .logoText {
         border-radius: 50%;
-        margin-top: 80px;
-        max-width: 500px;
+        margin-top: 60px;
+        // max-width: 500px;
     }
 
     .phraseTitre {
         color: #fff;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .logo {
@@ -27,6 +27,14 @@
         right: 20px;
         color: #fff;
         font-family: 'Montserrat', sans-serif;
+    }
+
+    @media screen and (max-width: 992px) {
+        height: 100vh;
+
+        .logoText {
+            margin-top: 180px;
+        }
     }
 
 }
