@@ -32,6 +32,7 @@ class AppFixtures extends Fixture
             ->setLogo2('logo2.png')
             ->setLogo3('logo3.png')
             ->setImageBanniere('micro3.jpg')
+            ->setBanniereActus('flou.jpg')
             ->setPhraseTitre('Des voix en mémoire')
             ->setCitation('Quoi de plus riche et émouvant que d’entendre
             et de conserver la voix de ceux que l’on aime')

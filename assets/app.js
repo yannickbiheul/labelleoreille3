@@ -9,6 +9,7 @@
 import './styles/app.scss';
 import './styles/nav.scss';
 import './styles/banniere.scss';
+import './styles/banniere-actus.scss';
 import './styles/presentation.scss';
 import './styles/footer.scss';
 import './styles/prestations.scss';
