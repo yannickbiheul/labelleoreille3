@@ -20,7 +20,12 @@ class GeneralUnitTest extends TestCase
             ->setLogo3('logo3')
             ->setPhoto('photo')
             ->setPhraseTitre('phraseTitre')
-            ->setProprietaire('proprietaire');
+            ->setProprietaire('proprietaire')
+            ->setImageBanniere('imageBanniere')
+            ->setTelephone('telephone')
+            ->setEmail('email')
+            ->setVille('ville')
+            ->setBanniereActus('banniereActus');
 
         $this->assertTrue($general->getCitation() === 'citation');
         $this->assertTrue($general->getDescription() === 'description');
@@ -32,6 +37,11 @@ class GeneralUnitTest extends TestCase
         $this->assertTrue($general->getPhoto() === 'photo');
         $this->assertTrue($general->getPhraseTitre() === 'phraseTitre');
         $this->assertTrue($general->getProprietaire() === 'proprietaire');
+        $this->assertTrue($general->getImageBanniere() === 'imageBanniere');
+        $this->assertTrue($general->getTelephone() === 'telephone');
+        $this->assertTrue($general->getEmail() === 'email');
+        $this->assertTrue($general->getVille() === 'ville');
+        $this->assertTrue($general->getBanniereActus() === 'banniereActus');
     }
 
     public function testIsFalse()
@@ -47,7 +57,12 @@ class GeneralUnitTest extends TestCase
             ->setLogo3('logo3')
             ->setPhoto('photo')
             ->setPhraseTitre('phraseTitre')
-            ->setProprietaire('proprietaire');
+            ->setProprietaire('proprietaire')
+            ->setImageBanniere('imageBanniere')
+            ->setTelephone('telephone')
+            ->setEmail('email')
+            ->setVille('ville')
+            ->setBanniereActus('banniereActus');
 
         $this->assertFalse($general->getCitation() === 'false');
         $this->assertFalse($general->getDescription() === 'false');
@@ -59,6 +74,11 @@ class GeneralUnitTest extends TestCase
         $this->assertFalse($general->getPhoto() === 'false');
         $this->assertFalse($general->getPhraseTitre() === 'false');
         $this->assertFalse($general->getProprietaire() === 'false');
+        $this->assertFalse($general->getImageBanniere() === 'false');
+        $this->assertFalse($general->getTelephone() === 'false');
+        $this->assertFalse($general->getEmail() === 'false');
+        $this->assertFalse($general->getVille() === 'false');
+        $this->assertFalse($general->getBanniereActus() === 'false');
     }
 
     public function testIsEmpty()
@@ -75,6 +95,11 @@ class GeneralUnitTest extends TestCase
         $this->assertEmpty($general->getPhoto());
         $this->assertEmpty($general->getPhraseTitre());
         $this->assertEmpty($general->getProprietaire());
+        $this->assertEmpty($general->getImageBanniere());
+        $this->assertEmpty($general->getTelephone());
+        $this->assertEmpty($general->getEmail());
+        $this->assertEmpty($general->getVille());
+        $this->assertEmpty($general->getBanniereActus());
     }
     
 }
