@@ -87,6 +87,11 @@ class General
      */
     private $ville;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $banniereActus;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -256,6 +261,18 @@ class General
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getBanniereActus(): ?string
+    {
+        return $this->banniereActus;
+    }
+
+    public function setBanniereActus(string $banniereActus): self
+    {
+        $this->banniereActus = $banniereActus;
 
         return $this;
     }
