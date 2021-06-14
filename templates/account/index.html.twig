@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Belle Oreille |
+	{{ page }}
+{% endblock %}
+
+{% block body %}
+	<div class="container" id="account">
+		<h1 class="text-center">{{ page }}</h1>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-6">
+				<div class="card" style="margin-bottom:40px;">
+					<div class="card-header">
+						<strong>Bonjour
+							{{ app.user.prenom | upper }}
+							{{ app.user.nom | upper }}
+							!</strong>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Bienvenue sur votre profil</h5>
+						<p class="card-text">Ici vous pouvez changer vos informations et voir vos fichiers audio.</p>
+                        <a href="{{ path('app_logout') }}" class="inscription btn btn-danger">Déconnexion</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-6">
+				<div class="card" style="margin-bottom:40px;">
+					<div class="card-header">
+						<strong>Vos informations</strong>
+					</div>
+					<div class="card-body">
+						<form>
+							<div class="row d-flex justify-content-center">
+								<div class="col-md-6">
+									<label for="prenom">Prénom</label>
+                                    <input class="form-control" type="text" id="prenom" value="{{ app.user.prenom }}">
+								</div>
+								<div class="col-md-6">
+									<label for="nom">Nom</label>
+                                    <input class="form-control" type="text" id="nom" value="{{ app.user.nom }}">
+								</div>
+							</div>
+                            <div class="row d-flex justify-content-center">
+								<div class="col-md-6">
+									<label for="telephone">Téléphone</label>
+                                    <input class="form-control" type="text" id="telephone" value="{{ app.user.telephone }}">
+								</div>
+								<div class="col-md-6">
+									<label for="ville">Ville</label>
+                                    <input class="form-control" type="text" id="ville" value="{{ app.user.ville }}">
+								</div>
+							</div>
+                            <div class="row d-flex justify-content-center">
+								<div class="col-md-6">
+									<label for="email">Email</label>
+                                    <input class="form-control" type="email" id="email" value="{{ app.user.email }}">
+								</div>
+								<div class="col-md-6">
+									<label for="password">Mot de passe</label>
+                                    <input class="form-control" type="password" id="password" value="{{ app.user.password }}">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<strong>Vos fichiers audio</strong>
+					</div>
+					<div class="card-body">
+						<p>Vous n'avez pas encore de fichiers audio</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}

@@ -18,6 +18,7 @@ import './styles/actus.scss';
 import './styles/galerie.scss';
 import './styles/register.scss';
 import './styles/cgu.scss';
+import './styles/account.scss';
 
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';

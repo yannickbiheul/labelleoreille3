@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\General;
-use App\Repository\UserRepository;
 use App\Repository\GeneralRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomeController extends AbstractController
+/**
+ * @Route("/account")
+ */
+class AccountController extends AbstractController
 {
     private $generalRepository;
 
@@ -19,13 +20,17 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="account")
      */
     public function index(): Response
     {
         $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
-        $page = "Accueil";
-        
-        return $this->render('home/index.html.twig', compact('general', 'page'));
+        $page = "Compte Utilisateur";
+
+        return $this->render('account/index.html.twig', [
+            'controller_name' => 'AccountController',
+            'general' => $general,
+            'page' => $page,
+        ]);
     }
 }

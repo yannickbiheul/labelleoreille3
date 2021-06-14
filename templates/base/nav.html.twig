@@ -32,7 +32,7 @@
 			</ul>
 
 			{% if app.user %}
-				<a href="{{ path('app_logout') }}" class="inscription btn btn-danger">Déconnexion</a>
+				<a href="{{ path('account') }}" class="inscription btn btn-success">Profil</a>
 			{% else %}
 				<a href="{{ path('app_register') }}" class="inscription btn btn-success">Inscription</a>
 				<a href="{{ path('app_login') }}" class="inscription btn btn-success">Connexion</a>
