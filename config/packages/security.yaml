@@ -20,12 +20,15 @@ security:
             provider: app_user_provider
 
             form_login:
-                login_path: security_login
-                check_path: security_login
+                login_path: app_login
+                check_path: app_login
 
             logout:
-                path: security_logout
+                path: app_logout
                 target: home
+            guard:
+                authenticators:
+                    - App\Security\LoginAuthenticator
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
