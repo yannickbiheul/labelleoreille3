@@ -11,66 +11,47 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     private $generalRepository;
-    private $manager;
 
-    public function __construct(GeneralRepository $generalRepository, 
-                                EntityManagerInterface $manager)
+    public function __construct(GeneralRepository $generalRepository)
     {
         $this->generalRepository = $generalRepository;
-        $this->manager = $manager;
     }
 
     /**
-     * @Route("/register2", name="security_register")
+     * @Route("/login", name="app_login")
      */
-    public function register(Request $request, 
-                            UserPasswordEncoderInterface $encoder): Response
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
-        $page = "Inscription";
+        // if ($this->getUser()) {
+        //     return $this->redirectToRoute('target_path');
+        // }
 
-        $user = new User;
-        $formulaire = $this->createForm(RegisterType::class, $user);
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-        // Analyse de la requête par le formulaire
-        $formulaire->handleRequest($request);
-
-        if ($formulaire->isSubmitted() && $formulaire->isValid()) {
-            // Traitement des données reçues du formulaire
-            $password_hash = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($password_hash);
-
-            $this->manager->persist($user);
-            $this->manager->flush();
-            return $this->redirectToRoute("security_login");
-        }
-
-        $form = $formulaire->createView();
-
-        return $this->render('security/index.html.twig', compact('general', 'page', 'form'));
-    }
-
-    /**
-     * @Route("/login2", name="security_login")
-     */
-    public function login(): Response
-    {
         $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
         $page = "Connexion";
 
-        return $this->render('security/login.html.twig', compact('general', 'page'));
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername, 
+            'error' => $error,
+            'general' => $general,
+            'page' => $page,
+        ]);
     }
 
     /**
-     * @Route("/logout2", name="security_logout")
+     * @Route("/logout", name="app_logout")
      */
     public function logout()
     {
-        
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
-
 }
