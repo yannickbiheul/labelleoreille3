@@ -25,7 +25,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="security_register")
+     * @Route("/register2", name="security_register")
      */
     public function register(Request $request, 
                             UserPasswordEncoderInterface $encoder): Response
@@ -55,7 +55,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="security_login")
+     * @Route("/login2", name="security_login")
      */
     public function login(): Response
     {
@@ -66,7 +66,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="security_logout")
+     * @Route("/logout2", name="security_logout")
      */
     public function logout()
     {
