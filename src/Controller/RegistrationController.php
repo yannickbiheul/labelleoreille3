@@ -63,10 +63,12 @@ class RegistrationController extends AbstractController
         }
 
         $general = $this->generalRepository->findOneBy(['proprietaire' => 'Jeanne Fourel']);
+        $page = "Inscription";
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
-            'general' => $general
+            'general' => $general,
+            'page' => $page,
         ]);
     }
 

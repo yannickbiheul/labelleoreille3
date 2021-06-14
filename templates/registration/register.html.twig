@@ -1,28 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}La Belle Oreille | Inscription
 {% endblock %}
 
 {% block body %}
-	<div class="container" id="containerRegister" style="padding-top:80px; padding-bottom:80px;">
+	<div class="container" id="register">
 		{% for flashError in app.flashes('verify_email_error') %}
 			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 		{% endfor %}
 
-		<h1>Register</h1>
+		<h1 class="text-center">{{ page }}</h1>
 
 		{{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.prenom) }}
-            {{ form_row(registrationForm.nom) }}
-            {{ form_row(registrationForm.telephone) }}
-            {{ form_row(registrationForm.ville) }}
-            {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Password'
-            }) }}
-            {{ form_row(registrationForm.agreeTerms) }}
 
-            <button type="submit" class="btn">Register</button>
+        <div class="row d-flex justify-content-center">
+			<div class="col-md-4">
+                {{ form_row(registrationForm.prenom, {'label':"Prénom", 'attr':{
+                    'placeholder': "Votre prénom ..."
+                }}) }}
+            </div>
+            <div class="col-md-4">
+                {{ form_row(registrationForm.nom, {'label':"Nom", 'attr':{
+                    'placeholder': "Votre nom ..."
+                }}) }}
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+			<div class="col-md-4">
+                {{ form_row(registrationForm.telephone, {'label':"Téléphone (optionnel)", 'attr':{
+                    'placeholder': "Votre téléphone ..."
+                }}) }}
+            </div>
+            <div class="col-md-4">
+                {{ form_row(registrationForm.ville, {'label':"Ville (optionnel)", 'attr':{
+                    'placeholder': "Votre ville ..."
+                }}) }}
+            </div>
+        </div>
+
+        <div class="row  d-flex justify-content-center">
+            <div class="col-md-8">
+                {{ form_row(registrationForm.email, {'label':"Email", 'attr':{
+                    'placeholder': "Votre email ..."
+                }}) }}
+            </div>
+            <div class="col-md-8">
+                {{ form_row(registrationForm.plainPassword, {'label':"Mot de passe", 'attr':{
+                    'placeholder': "Votre mot de passe ..."
+                }}) }}
+            </div>
+            <div class="col-md-8">
+                {{ form_row(registrationForm.agreeTerms, {'label':"Accepter les termes"}) }}
+                <a href="{{ path('cgu_conditions') }}" target="_blank">Voir conditions</a>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-success d-flex justify-content-center">S'inscrire</button>
+            </div>
+        </div>
+
 		{{ form_end(registrationForm) }}
 	</div>
 
