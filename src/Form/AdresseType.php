@@ -2,29 +2,32 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Adresse;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RegisterType extends AbstractType
+class AdresseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prenom')
             ->add('nom')
-            ->add('email')
-            ->add('password', PasswordType::class)
-            ->add('passwordConfirm', PasswordType::class)
+            ->add('entreprise')
+            ->add('adresse')
+            ->add('complement')
+            ->add('telephone')
+            ->add('ville')
+            ->add('codePostal')
+            ->add('pays', CountryType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Adresse::class,
         ]);
     }
 }

@@ -1,0 +1,132 @@
+#banniere {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding-top: 40px;
+    color: #fff;
+
+    .logoText {
+        border-radius: 50%;
+        margin-top: 60px;
+        // max-width: 500px;
+    }
+
+    .phraseTitre {
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        position: absolute;
+        bottom: -60px;
+    }
+
+    .page {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    @media screen and (max-width: 992px) {
+        height: 100vh;
+
+        .logoText {
+            margin-top: 180px;
+        }
+    }
+
+}
+
+#presentation {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .photoProfil {
+        width: 300px;
+        border-radius: 50%;
+    }
+
+    .containerPresentation {
+        // border: 1px solid #ccc;
+        padding: 40px;
+
+        hr {
+            width: 50%;
+        }
+    }
+
+}
+
+#banniere-actus {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    h2 {
+        color: #fff;
+    }
+
+    .carte {
+        position: relative;
+        border: 1px solid #000;
+        background-color: #fff;
+        min-width: 300px;
+        width: 475px;
+        height: 450px;
+        border-radius: 5px;
+        box-shadow: 4px 4px 4px #000;
+        margin: 20px;
+    }
+    
+    .carte-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    .carte-image>img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .carte-texte {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+    }
+    
+    .carte-texte>h3 {
+        margin-left: 10px;
+        margin-bottom: 40px;
+    }
+    
+    .carte-texte>p {
+        margin-left: 10px;
+    }
+    
+    .carte-texte>hr {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+#banniere-reseaux {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-size: 4rem;
+        margin: 20px;
+    }
+}
