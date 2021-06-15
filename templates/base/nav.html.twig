@@ -32,20 +32,20 @@
 			</ul>
 
 			{% if app.user %}
-				<a href="{{ path('account') }}" class="inscription btn btn-success">Profil</a>
+				<a href="{{ path('account') }}" class="inscription"><i class="fas fa-user"></i>Profil</a>
 			{% else %}
 				<a href="{{ path('app_register') }}" class="inscription btn btn-success">Inscription</a>
 				<a href="{{ path('app_login') }}" class="inscription btn btn-success">Connexion</a>
 			{% endif %}
 
-			<div class="reseaux d-flex justify-content-start">
+			{# <div class="reseaux d-flex justify-content-start">
 				<a href="{{ general.lienFacebook }}" target="_blank">
 					<i class="fab fa-facebook-f"></i>
 				</a>
 				<a href="{{ general.lienInstagram }}" target="_blank">
 					<i class="fab fa-instagram"></i>
 				</a>
-			</div>
+			</div> #}
 
 		</div>
 	</div>

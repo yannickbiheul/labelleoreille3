@@ -6,10 +6,18 @@
 
 {% block body %}
 	<div class="container" id="account">
+
+		{% for message in app.flashes('adresse_message') %}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Well done !</strong>
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
 		<h1 class="text-center">{{ page }}</h1>
 
 		<div class="row d-flex justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<div class="card" style="margin-bottom:40px;">
 					<div class="card-header">
 						<strong>Bonjour
@@ -19,15 +27,15 @@
 					</div>
 					<div class="card-body">
 						<h5 class="card-title">Bienvenue sur votre profil</h5>
-						<p class="card-text">Ici vous pouvez changer vos informations et voir vos fichiers audio.</p>
-                        <a href="{{ path('app_logout') }}" class="inscription btn btn-danger">Déconnexion</a>
+						<p class="card-text">Ici vous pouvez changer vos informations, voir vos adresses et vos fichiers audio.</p>
+						<a href="{{ path('app_logout') }}" class="inscription btn btn-danger">Déconnexion</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row d-flex justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<div class="card" style="margin-bottom:40px;">
 					<div class="card-header">
 						<strong>Vos informations</strong>
@@ -37,31 +45,21 @@
 							<div class="row d-flex justify-content-center">
 								<div class="col-md-6">
 									<label for="prenom">Prénom</label>
-                                    <input class="form-control" type="text" id="prenom" value="{{ app.user.prenom }}">
+									<input class="form-control" type="text" id="prenom" value="{{ app.user.prenom }}">
 								</div>
 								<div class="col-md-6">
 									<label for="nom">Nom</label>
-                                    <input class="form-control" type="text" id="nom" value="{{ app.user.nom }}">
+									<input class="form-control" type="text" id="nom" value="{{ app.user.nom }}">
 								</div>
 							</div>
-                            <div class="row d-flex justify-content-center">
-								<div class="col-md-6">
-									<label for="telephone">Téléphone</label>
-                                    <input class="form-control" type="text" id="telephone" value="{{ app.user.telephone }}">
-								</div>
-								<div class="col-md-6">
-									<label for="ville">Ville</label>
-                                    <input class="form-control" type="text" id="ville" value="{{ app.user.ville }}">
-								</div>
-							</div>
-                            <div class="row d-flex justify-content-center">
+							<div class="row d-flex justify-content-center">
 								<div class="col-md-6">
 									<label for="email">Email</label>
-                                    <input class="form-control" type="email" id="email" value="{{ app.user.email }}">
+									<input class="form-control" type="email" id="email" value="{{ app.user.email }}">
 								</div>
 								<div class="col-md-6">
 									<label for="password">Mot de passe</label>
-                                    <input class="form-control" type="password" id="password" value="{{ app.user.password }}">
+									<input class="form-control" type="password" id="password" value="{{ app.user.password }}">
 								</div>
 							</div>
 						</form>
@@ -71,7 +69,58 @@
 		</div>
 
 		<div class="row d-flex justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-8">
+				<div class="card" style="margin-bottom:40px;">
+					<div class="card-header">
+						<strong>Vos adresses</strong>
+					</div>
+					<div class="card-body">
+						<div class="row justify-content-center">
+							{% if app.user.adresses %}
+								{% for adresse in app.user.adresses %}
+									<div class="carte-adresse col-md-4" id="carte-adresse">
+										<div class="row">
+											<div class="col">
+												<h3 class="text-center">{{ adresse.nom }}</h3>
+												<hr>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<address class="text-center">
+													{{ adresse.adresse }}<br>
+													{{ adresse.complement }}<br>
+													{{ adresse.codePostal }}
+													{{ adresse.ville }}<br>
+													0{{ adresse.telephone }}<br>
+													{{ adresse.pays }}<br>
+												</address>
+												<hr>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col d-flex justify-content-center btn-group">
+												<a href="{{ path('adresse_edit', {'id':adresse.id}) }}" class="inscription btn btn-primary" style="margin-bottom:10px;">Edit</a>
+												{{ include('adresse/_delete_form.html.twig') }}
+											</div>
+										</div>
+
+									</div>
+								{% endfor %}
+
+							{% else %}
+								<p>Vous n'avez pas encore ajouté d'adresse.</p>
+							{% endif %}
+						</div>
+						<hr>
+						<a href="{{ path('adresse_new') }}" class="inscription btn btn-primary">Ajouter une adresse</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-8">
 				<div class="card">
 					<div class="card-header">
 						<strong>Vos fichiers audio</strong>

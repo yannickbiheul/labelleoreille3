@@ -63,8 +63,6 @@ class AppFixtures extends Fixture
             ->setNom('Fourel')
             ->setPrenom('Jeanne')
             ->setRoles(['ROLE_ADMIN'])
-            ->setTelephone('06 81 55 87 76')
-            ->setVille('Quimper')
             ->setCreatedAt(new \DateTime());
 
         $password = $this->encoder->encodePassword($admin, '123456');
@@ -78,8 +76,6 @@ class AppFixtures extends Fixture
             ->setNom('Biheul')
             ->setPrenom('Yannick')
             ->setRoles(['ROLE_ADMIN'])
-            ->setTelephone('06 23 55 68 64')
-            ->setVille('Quimper')
             ->setCreatedAt(new \DateTime());
 
         $password = $this->encoder->encodePassword($admin2, '123456');

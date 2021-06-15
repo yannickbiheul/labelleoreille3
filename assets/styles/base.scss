@@ -1,3 +1,40 @@
+nav {
+    box-shadow: 0 4px 4px #000;
+    border-top: 1px solid yellow;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .reseaux {
+        text-decoration: none;
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+    }
+
+    .inscription {
+        margin-right: 20px;
+    }
+
+    i {
+        font-size: 1.4rem;
+        margin-right: 5px;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .inscription {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
 // #footer {
 //     border-top: 1px solid #ccc;
 //     padding-top: 20px;

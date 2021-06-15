@@ -7,11 +7,8 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-import './styles/nav.scss';
-import './styles/banniere.scss';
-import './styles/banniere-actus.scss';
-import './styles/presentation.scss';
-import './styles/footer.scss';
+import './styles/base.scss';
+import './styles/home.scss';
 import './styles/prestations.scss';
 import './styles/contact.scss';
 import './styles/actus.scss';
@@ -20,6 +17,7 @@ import './styles/register.scss';
 import './styles/cgu.scss';
 import './styles/account.scss';
 import './styles/reset.scss';
+import './styles/adresse.scss';
 
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
