@@ -34,8 +34,8 @@
 			{% if app.user %}
 				<a href="{{ path('account') }}" class="inscription"><i class="fas fa-user"></i>Profil</a>
 			{% else %}
-				<a href="{{ path('app_register') }}" class="inscription btn btn-success">Inscription</a>
-				<a href="{{ path('app_login') }}" class="inscription btn btn-success">Connexion</a>
+				<a href="{{ path('app_register') }}" class="inscription"><i class="fas fa-sign-in-alt"></i>Inscription</a>
+				<a href="{{ path('app_login') }}" class="inscription"><i class="fas fa-user"></i>Connexion</a>
 			{% endif %}
 
 			{# <div class="reseaux d-flex justify-content-start">
