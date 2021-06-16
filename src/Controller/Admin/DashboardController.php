@@ -10,6 +10,7 @@ use App\Entity\Prestation;
 use App\Controller\Admin\ActuCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\GeneralCrudController;
+use App\Entity\ActuCategorie;
 use App\Entity\General;
 use App\Entity\Photo;
 use App\Repository\UserRepository;
@@ -42,12 +43,25 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
+
+        yield MenuItem::section('Général');
         yield MenuItem::linkToCrud('Général', 'fas fa-list', General::class);
+
+        yield MenuItem::section('Prestations');
         yield MenuItem::linkToCrud('Prestations', 'fas fa-newspaper', Prestation::class);
-        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
-        yield MenuItem::linkToCrud('Audios', 'fas fa-music', Audio::class);
+        yield MenuItem::linkToCrud('Catégories','fas fa-list', Categorie::class);
+
+        yield MenuItem::section('Actualités');
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Actu::class);
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', ActuCategorie::class);
+
+        yield MenuItem::section('Audios');
+        yield MenuItem::linkToCrud('Audios', 'fas fa-music', Audio::class);
+
+        yield MenuItem::section('Photos');
         yield MenuItem::linkToCrud('Photos', 'fas fa-camera-retro', Photo::class);
+
+        yield MenuItem::section('Utilisateurs');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
     }
 }
