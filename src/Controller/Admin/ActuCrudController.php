@@ -24,6 +24,7 @@ class ActuCrudController extends AbstractCrudController
             TextEditorField::new('contenu'),
             ImageField::new('image')->setUploadDir("public/images")
                                     ->setBasePath("/images")
+                                    ->setUploadedFileNamePattern('[randomhash].[extension]')
                                     ->setRequired(false),
         ];
     }
