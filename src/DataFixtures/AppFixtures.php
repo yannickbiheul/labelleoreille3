@@ -47,15 +47,6 @@ class AppFixtures extends Fixture
 
         $manager->persist($general);
 
-        // CATEGORIES
-        $categorie1 = new Categorie;
-        $categorie1->setNom('Particuliers');
-        $manager->persist($categorie1);
-
-        $categorie2 = new Categorie;
-        $categorie2->setNom('Entreprises');
-        $manager->persist($categorie2);
-
         // ADMIN
         $admin = new User;
 
