@@ -1,44 +1,80 @@
-<div class="container-fluid" id="prestations">
-	<div class="row">
-	
-	<div class="col-xl-3 col-lg-4">
-		<h2>Catégories</h2>
-		<ul class="list-group">
-		{% for categorie in categories %}
-			<a href="{{ path('show_prestations', {'id':categorie.id}) }}">
-				<li class="list-group-item d-flex justify-content-between align-items-center">
-					{{ categorie.nom }}
-					<span class="badge bg-secondary">{{ categorie.prestations | length }}</span>
-				</li>
-			</a>
-		{% endfor %}
-		</ul>
-	</div>
-	
-    {% for prestation in prestations %}
-		<div class="col-xl-3 col-lg-4">
-			<div class="card" data-aos="flip-left" data-aos-duration="2000">
-				<div class="card-body">
+<div class="container" id="prestations">
+	<div class="row d-flex justify-content-center">
 
-                    {# TITRE #}
-					<h5 class="card-title">{{ prestation.titre }}</h5>
+		<h1 class="text-center" style="margin-bottom:80px;">Prestations</h1>
 
-                    {# CATEGORIE #}
-                    {% for categorie in prestation.categorie %}
-					<h6 class="card-subtitle mb-2 text-muted"> | {{ categorie.nom }}</h6>
-                    {% endfor %}
+		{# <div class="col-xl-3 col-lg-4">
+					<h2>Catégories</h2>
+					<ul class="list-group">
+						{% for categorie in categories %}
+							<a href="{{ path('show_prestations', {'id':categorie.id}) }}">
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									{{ categorie.nom }}
+									<span class="badge bg-secondary">{{ categorie.prestations | length }}</span>
+								</li>
+							</a>
+						{% endfor %}
+					</ul>
+				</div> #}
 
-                    {# CONTENU #}
-					<p class="card-text">{{ prestation.contenu | raw }}</p>
+		{% for prestation in prestations %}
 
-                    {# AUDIO #}
-					{% for audio in prestation.audio %}
-						<figcaption>{{ audio.nom }}</figcaption>
-						<audio src="/audios/{{ audio.lien }}" controls></audio>
-					{% endfor %}
+			<div class="col-xl-3 col-lg-4">
+				<div class="card" data-aos="flip-left" data-aos-duration="2000">
+				{% for categorie in prestation.categorie %}
+					<img src="/images/{{ categorie.image }}" class="card-img-top" alt="...">
+				{% endfor %}
+					<div
+						class="card-body">
+
+						{# TITRE #}
+						<h5 class="card-title">{{ prestation.titre }}</h5>
+
+						{# CATEGORIE #}
+						{% for categorie in prestation.categorie %}
+							<h6 class="card-subtitle mb-2 text-muted">
+								|
+								{{ categorie.nom }}</h6>
+						{% endfor %}
+
+						{# CONTENU #}
+						{# <p class="card-text">{{ prestation.contenu | raw }}</p> #}
+
+						{# AUDIO #}
+						{# {% for audio in prestation.audio %}
+													<figcaption>{{ audio.nom }}</figcaption>
+													<audio src="/audios/{{ audio.lien }}" controls></audio>
+												{% endfor %} #}
+
+						<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> VOIR
+						</button>
+
+						
+					</div>
 				</div>
 			</div>
-		</div>
-    {% endfor %}
+			<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">{{ prestation.titre }}</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<p class="card-text">{{ prestation.contenu | raw }}</p>
+										{% for audio in prestation.audio %}
+											<figcaption>{{ audio.nom }}</figcaption>
+											<audio src="/audios/{{ audio.lien }}" controls></audio>
+										{% endfor %}
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+									</div>
+								</div>
+							</div>
+						</div>
+		{% endfor %}
 	</div>
 </div>
