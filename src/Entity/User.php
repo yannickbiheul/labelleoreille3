@@ -78,10 +78,16 @@ class User implements UserInterface
      */
     private $adresses;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Audio::class, mappedBy="user")
+     */
+    private $audio;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->adresses = new ArrayCollection();
+        $this->audio = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -249,6 +255,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($adress->getUser() === $this) {
                 $adress->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Audio[]
+     */
+    public function getAudio(): Collection
+    {
+        return $this->audio;
+    }
+
+    public function addAudio(Audio $audio): self
+    {
+        if (!$this->audio->contains($audio)) {
+            $this->audio[] = $audio;
+            $audio->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAudio(Audio $audio): self
+    {
+        if ($this->audio->removeElement($audio)) {
+            // set the owning side to null (unless already changed)
+            if ($audio->getUser() === $this) {
+                $audio->setUser(null);
             }
         }
 
