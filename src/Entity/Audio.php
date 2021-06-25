@@ -34,6 +34,11 @@ class Audio
      */
     private $prestations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="audio")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->prestations = new ArrayCollection();
@@ -96,6 +101,18 @@ class Audio
         if ($this->prestations->removeElement($prestation)) {
             $prestation->removeAudio($this);
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
