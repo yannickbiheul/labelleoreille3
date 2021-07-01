@@ -28,7 +28,6 @@ class AccountController extends AbstractController
         $page = "Compte Utilisateur";
 
         return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
             'general' => $general,
             'page' => $page,
         ]);
