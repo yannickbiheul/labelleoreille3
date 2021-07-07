@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AudioCrudController extends AbstractCrudController
 {
